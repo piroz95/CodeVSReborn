@@ -11,15 +11,15 @@ public class EvaluatorSimple implements Evaluator<ChainContainerImpl> {
     private final EvaluatorParts mini;
 
     public EvaluatorSimple(final ChainFinder chainFinder, final EvaluatorParts mini) {
-		this.chainFinder = chainFinder;
-		this.mini = mini;
-	}
-	
-	@Override
+        this.chainFinder = chainFinder;
+        this.mini = mini;
+    }
+
+    @Override
     public ChainContainerImpl evaluate(final GameNode state) {
         final Chain chain = chainFinder.findChain(state.board.field);
         final double score = mini.evaluate(state, chain);
-		return new ChainContainerImpl(score, chain);
-	}
-	
+        return new ChainContainerImpl(score, chain);
+    }
+
 }
